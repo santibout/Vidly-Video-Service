@@ -217,9 +217,38 @@
     <Compile Include="Migrations\201801190751094_addNameToMembershipType.Designer.cs">
       <DependentUpon>201801190751094_addNameToMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801190821091_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201801190821091_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201801190821091_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801190823011_MadeBirthdateNullable.cs" />
+    <Compile Include="Migrations\201801190823011_MadeBirthdateNullable.Designer.cs">
+      <DependentUpon>201801190823011_MadeBirthdateNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191121399_DeletedGenre.cs" />
+    <Compile Include="Migrations\201801191121399_DeletedGenre.Designer.cs">
+      <DependentUpon>201801191121399_DeletedGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191131489_Test.cs" />
+    <Compile Include="Migrations\201801191131489_Test.Designer.cs">
+      <DependentUpon>201801191131489_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191133394_Initial1.cs" />
+    <Compile Include="Migrations\201801191133394_Initial1.Designer.cs">
+      <DependentUpon>201801191133394_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191139167_addGenreToMovie.cs" />
+    <Compile Include="Migrations\201801191139167_addGenreToMovie.Designer.cs">
+      <DependentUpon>201801191139167_addGenreToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191206320_AddNullToReleaseDateInMovie.cs" />
+    <Compile Include="Migrations\201801191206320_AddNullToReleaseDateInMovie.Designer.cs">
+      <DependentUpon>201801191206320_AddNullToReleaseDateInMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -292,6 +321,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,6 +354,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801190751094_addNameToMembershipType.resx">
       <DependentUpon>201801190751094_addNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190821091_AddBirthdateToCustomer.resx">
+      <DependentUpon>201801190821091_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190823011_MadeBirthdateNullable.resx">
+      <DependentUpon>201801190823011_MadeBirthdateNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191121399_DeletedGenre.resx">
+      <DependentUpon>201801191121399_DeletedGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191131489_Test.resx">
+      <DependentUpon>201801191131489_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191133394_Initial1.resx">
+      <DependentUpon>201801191133394_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191139167_addGenreToMovie.resx">
+      <DependentUpon>201801191139167_addGenreToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191206320_AddNullToReleaseDateInMovie.resx">
+      <DependentUpon>201801191206320_AddNullToReleaseDateInMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
