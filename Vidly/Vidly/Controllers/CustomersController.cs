@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -20,10 +21,49 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        // GET: Customers
-        public ActionResult New()
+        [HttpPost]
+        public ActionResult Save(Customer customer)
         {
-            return View();
+            if (customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var person = _context.Customers.Single(c => c.Id == customer.Id);
+
+                // Mapper.Map(customer, person);
+                person.Name = customer.Name;
+                person.BirthDate = customer.BirthDate;
+                person.MembershipTypeId = customer.MembershipTypeId;
+                person.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
+
+        public ActionResult CustomerForm()
+        {
+            CustomerFormViewModel view = new CustomerFormViewModel
+            {
+                MembershipType = _context.MembershipTypes.ToList()
+            };
+            return View(view);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            CustomerFormViewModel view = new CustomerFormViewModel()
+            {
+                Customer = customer,
+                MembershipType = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", view);
         }
 
         public ActionResult Index()
@@ -37,7 +77,7 @@ namespace Vidly.Controllers
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
-     
+
             return View(customer);
         }
 

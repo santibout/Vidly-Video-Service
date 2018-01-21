@@ -5,6 +5,8 @@
 
 <h2>Customers</h2>
 
+@Html.ActionLink("New Customer", "CustomerForm", "Customers", new { @class = "btn btn-danger" })
+@*<button type="button" class="btn btn-danger">New Customer</button>*@
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
@@ -16,7 +18,7 @@
         @foreach (var person in Model)
         {
             <tr>
-                <td>@Html.ActionLink(person.Name, "Details", "Customers", new { id = person.Id }, null)</td>
+                <td>@Html.ActionLink(person.Name, "Edit", "Customers", new { id = person.Id }, null)</td>
                 <td>@person.MembershipType.Name</td>
             </tr>
         }
