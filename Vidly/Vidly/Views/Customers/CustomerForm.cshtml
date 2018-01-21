@@ -7,17 +7,21 @@
 <h2>New Customer</h2>
 @using (Html.BeginForm("Save", "Customers"))
 {
+    @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.Name)
         @Html.TextBoxFor(c => c.Customer.Name, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label for="BirthDate">Date of Birth</label>
-        @Html.TextBoxFor(c => c.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.Name)
     </div>
     <div class="form-group">
         <label for="Customer_MembershipTypeId">Membership Type</label>
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipType, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.MembershipTypeId)
+    </div>
+    <div class="form-group">
+        <label for="BirthDate">Date of Birth</label>
+        @Html.TextBoxFor(c => c.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.BirthDate)
     </div>
     <div class="form-group">
         <label>
@@ -25,6 +29,11 @@
         </label>
     </div>
     @Html.HiddenFor(c => c.Customer.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-danger">Save</button>
 }
 
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
