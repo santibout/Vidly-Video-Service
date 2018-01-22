@@ -80,10 +80,11 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            var People = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View(People);
+            //this is commented out because we used ajax jquery to get the list
+            //var People = _context.Customers.Include(c => c.MembershipType).ToList();
+            return View(/*People*/);
         }
-
+        
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
