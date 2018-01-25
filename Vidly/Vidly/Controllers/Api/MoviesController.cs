@@ -11,6 +11,7 @@ using System.Data.Entity;
 
 namespace Vidly.Controllers.Api
 {
+
     public class MoviesController : ApiController
     {
         private ApplicationDbContext _context;
@@ -37,6 +38,7 @@ namespace Vidly.Controllers.Api
                 return NotFound();
             return Ok(Mapper.Map<Movie, MovieDto>(movie));
         }
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
@@ -51,6 +53,7 @@ namespace Vidly.Controllers.Api
             return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
 
         }
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPut]
         public void UpdateMovie(int id, MovieDto movieDto)
         {
@@ -66,6 +69,7 @@ namespace Vidly.Controllers.Api
 
             _context.SaveChanges();
         }
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpDelete]
         public void DeleteMovie(int id)
         {

@@ -30,6 +30,8 @@ namespace Vidly.Controllers
             return View("ReadONlyList");
         }
 
+        //venessa  7607572121 ex 6981
+
         [Authorize(Roles = RoleName.CanManageMovies)]
         public ViewResult New()
         {
